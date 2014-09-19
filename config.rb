@@ -1,0 +1,9 @@
+# Compass Config
+preferred_syntax = :sass
+http_path = '/'
+css_dir = 'dist/styles'
+sass_dir = 'app/styles'
+images_dir = 'dist/images'
+fonts_dir = 'dist/fonts'
+relative_assets = true
+line_comments = true
