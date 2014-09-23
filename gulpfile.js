@@ -42,6 +42,7 @@ gulp.task('styles', function () {
             compass: true,
             bundleExec: false,
             sourcemap: false,
+            sourcemapPath: '.',
             style: 'expanded',
             precision: 10
         }))
