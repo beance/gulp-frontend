@@ -129,7 +129,8 @@ gulp.task('setWatch', function () {
 //-----------------
 gulp.task('watch', ['setWatch', 'browserSync'], function () {
     gulp.watch('app/styles/main.scss', ['styles',reload]);
-    gulp.watch('app/styles/**/*.{sass, scss}', ['styles',reload]);
+    gulp.watch('app/styles/**/*.scss', ['styles',reload]);
+    gulp.watch('app/styles/**/*.sass', ['styles',reload]);
     gulp.watch('app/coffee/**/*.coffee', ['coffee']);
     gulp.watch('app/scripts/**/*.js', ['scripts',reload]);
     gulp.watch('app/images/**/*', ['images',reload]);
