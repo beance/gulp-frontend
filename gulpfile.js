@@ -25,7 +25,7 @@ gulp.task('coffee', function () {
         .on('error', handleErrors)
         .pipe($.sourcemaps.write())
         .pipe(gulp.dest('app/scripts'))
-       ;
+        ;
 });
 //-----------------
 gulp.task('scripts', function () {
@@ -87,8 +87,7 @@ gulp.task('images', function () {
 });
 //-----------------
 gulp.task('fonts', function () {
-    return $.bowerFiles()
-        .pipe($.filter('**/*.{eot,svg,ttf,woff}'))
+    return gulp.src(['app/fonts/*.*'], {dot: true})
         .pipe($.flatten())
         .pipe(gulp.dest('dist/fonts'))
         .pipe($.size());
@@ -104,10 +103,10 @@ gulp.task('default', ['clean'], function () {
     gulp.start('build');
 });
 //-----------------
-gulp.task('build', ['html', 'images', 'fonts', 'extras']);
+gulp.task('build', ['clean','html', 'images', 'fonts', 'extras']);
 //-----------------
 gulp.task('clean', function () {
-    return gulp.src(['.tmp', 'dist'], {read: false}).pipe($.clean());
+    return gulp.src(['.tmp','.sass-cache', 'dist'], {read: false}).pipe($.clean());
 });
 //-----------------
 gulp.task('browserSync', ['clean', 'coffee', 'styles'], function () {
@@ -134,7 +133,7 @@ gulp.task('watch', ['setWatch', 'browserSync'], function () {
     gulp.watch('app/coffee/**/*.coffee', ['coffee']);
     gulp.watch('app/scripts/**/*.js', ['scripts',reload]);
     gulp.watch('app/images/**/*', ['images',reload]);
-    gulp.watch('bower.json', ['wiredep',reload]);
+    //gulp.watch('bower.json', ['wiredep',reload]);
 });
 //-----------------
 gulp.task('wiredep', function () {
