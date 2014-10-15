@@ -117,8 +117,8 @@ gulp.task('browserSync', ['clean', 'coffee', 'styles'], function () {
         files: [
             "app/*.html"
         ],
-        port: 9000
-        //notify: true
+        port: 9000,
+        notify: false
     });
 });
 //-----------------
